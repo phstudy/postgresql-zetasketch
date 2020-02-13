@@ -6,7 +6,7 @@
 
     <groupId>org.phstudy</groupId>
     <artifactId>postgresql-zetasketch</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
     <name>ZetaSketch HLL++ extension for PostgreSQL</name>
     <description>Project that provides ZetaSketch HLL++ functions and aggregation functions for PostgreSQL</description>
