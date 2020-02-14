@@ -1,10 +1,9 @@
 # PostgreSQL-ZetaSketch
 PostgreSQL-ZetaSketch brings [Google BigQuery HLL++ compatible functions](https://cloud.google.com/bigquery/docs/reference/standard-sql/hll_functions) to PostgreSQL.
 
-## Run in Docker
+## Run in [Docker](https://hub.docker.com/r/study/postgresql-zetasketch)
 ```bash
-docker build . -t phstudy/postgresql-zetasketch
-docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d phstudy/postgresql-zetasketch
+docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d study/postgresql-zetasketch
 ```
 
 
@@ -13,7 +12,7 @@ docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d phstudy
 
 ### Example
 ```bash
-docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d phstudy/postgresql-zetasketch
+docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d study/postgresql-zetasketch
 
 docker exec -it some-postgres psql -U postgres
 
