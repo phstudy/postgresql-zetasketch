@@ -6,12 +6,14 @@
 
     <groupId>org.phstudy</groupId>
     <artifactId>postgresql-zetasketch</artifactId>
-    <version>1.0</version>
+    <version>1.0.0</version>
 
     <name>ZetaSketch HLL++ extension for PostgreSQL</name>
     <description>Project that provides ZetaSketch HLL++ functions and aggregation functions for PostgreSQL</description>
 
     <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -25,6 +27,12 @@
             <groupId>com.google.zetasketch</groupId>
             <artifactId>zetasketch</artifactId>
             <version>0.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.6.0</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

@@ -42,13 +42,17 @@ public class HLLCount {
         HyperLogLogPlusPlus hll;
 
         if (stateSketch == null) {
-            hll = build(input, normalPrecision);
+            hll = build(input.getClass(), normalPrecision);
         } else {
             hll = HyperLogLogPlusPlus.forProto(stateSketch);
         }
 
         if (input != null) {
-            hll.add(input);
+            if(input instanceof byte[]) {
+                hll.add((byte[]) input);
+            } else {
+                hll.add(input);
+            }
         }
 
         return hll.serializeToByteArray();
@@ -79,21 +83,21 @@ public class HLLCount {
                                   .longResult();
     }
 
-    public static HyperLogLogPlusPlus build(Object input,
+    public static HyperLogLogPlusPlus build(Class<?> input,
                                             int normalPrecision) {
         HyperLogLogPlusPlus.Builder builder = new HyperLogLogPlusPlus.Builder().normalPrecision(normalPrecision)
                                                                                .sparsePrecision(normalPrecision
                                                                                                         + DEFAULT_SPARSE_PRECISION_DELTA);
-        if (input instanceof String) {
+        if (input == String.class) {
             return builder.buildForStrings();
         }
-        else if (input instanceof ByteString) {
+        else if (input == byte[].class) {
             return builder.buildForBytes();
         }
-        else if (input instanceof Integer) {
+        else if (input == Integer.class) {
             return builder.buildForIntegers();
         }
-        else if (input instanceof Long) {
+        else if (input == Long.class) {
             return builder.buildForLongs();
         }
 

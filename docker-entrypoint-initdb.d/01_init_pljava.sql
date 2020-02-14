@@ -3,7 +3,7 @@ CREATE SCHEMA hll_count;
 ALTER DATABASE postgres SET pljava.libjvm_location FROM CURRENT;
 ALTER USER postgres SET SEARCH_PATH TO public,sqlj,hll_count;
 CREATE EXTENSION pljava;
-SELECT sqlj.install_jar('file:///postgresql-zetasketch/target/postgresql-zetasketch-1.0.jar', 'zetasketch', true);
+SELECT sqlj.install_jar('file:///postgresql-zetasketch/target/postgresql-zetasketch-1.0.0.jar', 'zetasketch', true);
 SHOW search_path;
 SELECT sqlj.get_classpath('hll_count');
 SELECT sqlj.set_classpath('hll_count', 'zetasketch');
